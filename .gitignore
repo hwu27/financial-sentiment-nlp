@@ -1,0 +1,6 @@
+# .gitignore
+.env/
+_pycache_/
+FinancialPhraseBank/
+finance.csv
+bert_model.pth
