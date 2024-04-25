@@ -19,3 +19,9 @@ For accelerated GPU training (Recommended):
 8. Install cuDNN: https://developer.nvidia.com/rdp/cudnn-archive
 
 -----
+
+Acknowledgements:
+
+Dataset: https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news
+Model Inspiration: https://colab.research.google.com/github/abhimishra91/transformers-tutorials/blob/master/transformers_multi_label_classification.ipynb
+
