@@ -30,7 +30,7 @@ So how does it work?
    
 ![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/401fa95e-b30d-4417-8a4c-74cd3880ab13)
 
-4. Next, I created a Selenium Webdriver to search a financial news outlet (in this case, CNBC)
+3. Next, I created a Selenium Webdriver to search a financial news outlet (in this case, CNBC)
 
 ![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/1f544edc-a083-4500-baad-b977e34bf716)
 
