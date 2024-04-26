@@ -20,6 +20,29 @@ For accelerated GPU training (Recommended):
 
 -----
 
+So how does it work?
+1. I first trained the transformer model BERT through the use of the transformers model from HuggingFace using the Sentiment Analysis for Financial News on Kaggle
+
+![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/ae184e71-5fcc-47f8-bac1-9c3c4f9f6af0)
+
+
+2. I then tested the model on the validation dataset that we obtained from splitting the dataset using the CustomDataset class
+   
+![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/401fa95e-b30d-4417-8a4c-74cd3880ab13)
+
+4. Next, I created a Selenium Webdriver to search a financial news outlet (in this case, CNBC)
+
+![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/1f544edc-a083-4500-baad-b977e34bf716)
+
+Selenium will extract key information from the website, which then we pass back into the model for sentiment analysis.
+Note, I only extract the title in this project, but the Selenium script is made in a way so that you can extract more from the website if wanted. I just did it for the sake of time.
+
+![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/1b8b1287-766f-4013-b893-1028dde301f0)
+
+
+![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/2bd7f85e-3211-4df7-a97d-0c8ec2300ebb)
+
+
 Acknowledgements:
 
 Dataset: https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news
