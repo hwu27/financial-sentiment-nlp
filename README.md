@@ -23,5 +23,6 @@ For accelerated GPU training (Recommended):
 Acknowledgements:
 
 Dataset: https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news
-Model Inspiration: https://colab.research.google.com/github/abhimishra91/transformers-tutorials/blob/master/transformers_multi_label_classification.ipynb
+
+Model Inspiration: https://colab.research.google.com/github/abhimishra91/transformers-tutorials/blob/master/transformers_multi_label_classification.ipynb (Amazing tutorial and main driver for this project)
 

@@ -123,11 +123,11 @@ model.load_state_dict(torch.load('bert_model.pth'))
 # define training function
 def train(epoch):
     model.train()
-    for _,data in enumerate(training_loader, 0):
-        ids = data['ids'].to(device, dtype = torch.long)
-        mask = data['mask'].to(device, dtype = torch.long)
-        token_type_ids = data['token_type_ids'].to(device, dtype = torch.long)
-        targets = data['targets'].to(device, dtype = torch.float)
+    for batch in training_loader:
+        ids = batch['ids'].to(device, dtype = torch.long)
+        mask = batch['mask'].to(device, dtype = torch.long)
+        token_type_ids = batch['token_type_ids'].to(device, dtype = torch.long)
+        targets = batch['targets'].to(device, dtype = torch.float)
 
         outputs = model(ids, mask, token_type_ids)
 
@@ -148,29 +148,29 @@ torch.save(model.state_dict(), 'bert_model.pth')
 model.load_state_dict(torch.load('bert_model.pth'))
 
 # define validation function
-def validation(epoch):
+def validation():
     model.eval()
     fin_targets=[]
     fin_outputs=[]
     with torch.no_grad():
-        for _, data in enumerate(testing_loader, 0):
-            ids = data['ids'].to(device, dtype = torch.long)
-            mask = data['mask'].to(device, dtype = torch.long)
-            token_type_ids = data['token_type_ids'].to(device, dtype = torch.long)
-            targets = data['targets'].to(device, dtype = torch.float)
+        for batch in testing_loader:
+            ids = batch['ids'].to(device, dtype = torch.long)
+            mask = batch['mask'].to(device, dtype = torch.long)
+            token_type_ids = batch['token_type_ids'].to(device, dtype = torch.long)
+            targets = batch['targets'].to(device, dtype = torch.float)
             outputs = model(ids, mask, token_type_ids)
             fin_targets.extend(targets.cpu().detach().numpy().tolist())
             #fin_outputs.extend(torch.argmax(outputs, dim=1).cpu().detach().numpy().tolist()) # possibly just use argmax instead of sigmoid
             fin_outputs.extend(torch.sigmoid(outputs).cpu().detach().numpy().tolist())
     return fin_outputs, fin_targets
 
-for epoch in range(EPOCHS):
-    outputs, targets = validation(epoch)
-    # we are deciding between 0 and 1 for the target column for instance [0, 0, 1]
-    outputs = np.array(outputs) >= 0.5
-    accuracy = metrics.accuracy_score(targets, outputs)
-    f1_score_micro = metrics.f1_score(targets, outputs, average='micro')
-    f1_score_macro = metrics.f1_score(targets, outputs, average='macro')
-    print(f"Accuracy Score = {accuracy}")
-    print(f"F1 Score (Micro) = {f1_score_micro}")
-    print(f"F1 Score (Macro) = {f1_score_macro}")
+
+outputs, targets = validation()
+# we are deciding between 0 and 1 for the target column for instance [0, 0, 1]
+outputs = np.array(outputs) >= 0.5
+accuracy = metrics.accuracy_score(targets, outputs)
+f1_score_micro = metrics.f1_score(targets, outputs, average='micro')
+f1_score_macro = metrics.f1_score(targets, outputs, average='macro')
+print(f"Accuracy Score = {accuracy}")
+print(f"F1 Score (Micro) = {f1_score_micro}")
+print(f"F1 Score (Macro) = {f1_score_macro}")
