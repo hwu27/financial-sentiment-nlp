@@ -42,6 +42,7 @@ Note, I only extract the title in this project, but the Selenium script is made 
 
 ![image](https://github.com/hwu27/financial-sentiment-nlp/assets/130116077/2bd7f85e-3211-4df7-a97d-0c8ec2300ebb)
 
+To improve the model, add more data and extra more data from different websites.
 
 Acknowledgements:
 
