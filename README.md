@@ -1,6 +1,6 @@
 # financial-sentiment-nlp
 
-This project details how to use a transformer model (BERT) with **Pytorch** and **Selenium** to both retrieve financial news and to create a sentiment score for a specific company/stock.
+This project details how to use a transformer model (BERT) with **Pytorch** and **Selenium** to both retrieve financial news and to create a sentiment score for a specific company/stock. This is just a demonstration of a possibly larger implementation.
 
 Installation (Linux):
 
